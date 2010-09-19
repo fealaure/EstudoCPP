@@ -21,18 +21,25 @@
 #include <iostream>
 #include <stdio.h>
 
-void recebe_nome(char* nome, int numero) {
+void recebe_nome(char nome[], int numero) {
     printf("Digite o %dº nome: ", numero + 1);
-    scanf("%s", *nome);
+    scanf("%s", nome);
 }
 
 int main()
 {
     int i = 0;
-    char nome[30];
+    char nome[3][30];
     
     while (i < 3) {
-        recebe_nome(&nome, i);
+        recebe_nome(nome[i], i);
+        i++;
+    }
+    
+    i = 0;
+    while (i < 3) {
+        printf("Nome: %s\n", nome[i]);
+        i++;
     }
     
     return 0;
