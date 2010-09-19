@@ -23,7 +23,7 @@
 
 void recebe_nome(char nome[], int numero) {
     printf("Digite o %dº nome: ", numero + 1);
-    scanf("%s", nome);
+    fgets(nome, 30, stdin);
 }
 
 int main()
