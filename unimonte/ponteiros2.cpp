@@ -1,6 +1,6 @@
-//      ponteiro_troca.cpp
+//      ponteiros2.cpp
 //
-//      Copyright 2010 Evaldo Junior <junior@casoft.info>
+//      Copyright 2010 Evaldo Junior Bento <junior@casoft.info>
 //
 //      This program is free software; you can redistribute it and/or modify
 //      it under the terms of the GNU General Public License as published by
@@ -21,33 +21,16 @@
 #include <iostream>
 #include <stdio.h>
 
-using namespace std;
-
-void troca(int *num1, int *num2);
-
 int main()
 {
-    int num1, num2;
+    int a = 1;
+    int* b;
 
-    num1 = 10;
-    num2 = 20;
+    b = &a;
 
-    printf("\nAntes de trocar os valores\n");
-    printf("num1 = %d\n", num1);
-    printf("num2 = %d\n", num2);
-
-    troca(&num1, &num2);
-
-    printf("\n\nApós trocar os valores\n");
-    printf("num1 = %d\n", num1);
-    printf("num2 = %d\n", num2);
-
+    while (a < 10) {
+        printf("'a' vale: %d\n", a);
+        *b = *b + 1;
+    }
     return 0;
-}
-
-void troca(int *valor1, int *valor2)
-{
-    int temp = *valor1;
-    *valor1 = *valor2;
-    *valor2 = temp;
 }

@@ -42,5 +42,19 @@ int main()
         printf("vetor[%d]: %d\n", i, vetor[i]);
     }
 
+    printf("\n\nQuantos itens o novo vetor deve conter? ");
+    scanf("%d", &total);
+
+    vetor = new int[total];
+
+    for (i = 0; i < total; i++) {
+        printf("Digite o %dº valor: ", i + 1);
+        scanf("%d", &vetor[i]);
+    }
+
+    for (i = 0; i < total; i++) {
+        printf("vetor[%d]: %d\n", i, vetor[i]);
+    }
+
     return 0;
 }
