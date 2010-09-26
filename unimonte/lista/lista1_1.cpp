@@ -23,22 +23,24 @@
  */
 
 #include <iostream>
+#include <stdio.h>
 
 using namespace std;
 
 int main()
 {
-    int i, soma, numero;
+    int i, numero;
+    long soma;
 
-    soma = 0;
+    soma = 0L;
 
-    for (i = 0; i < 15; i++) {
-        cout << "Digite o " << i + 1 << "º número: ";
-        cin >> numero;
+    for (i = 1; i <= 15; i++) {
+        printf("Digite o %dº número: ", i);
+        scanf("%d", &numero);
         soma += numero;
     }
 
-    cout << "\n\nA soma dos números vale: " << soma;
+    printf("\n\nA soma dos números vale: %ld.", soma);
 
     return 0;
 }

@@ -29,6 +29,7 @@
  */
 
 #include <iostream>
+#include <stdio.h>
 
 using namespace std;
 
@@ -38,7 +39,9 @@ int soma_intervalo(int num1, int num2) {
     soma = 0;
 
     for (i = num1; i <= num2; i++) {
-        soma += i;
+        if (i % 2 == 0) {
+            soma += i;
+        }
     }
 
     return soma;
@@ -48,14 +51,22 @@ int main()
 {
     int num1, num2;
 
-    cout << "Digite o primeiro número: ";
-    cin >> num1;
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
 
-    cout << "Digite o segundo número: ";
-    cin >> num2;
+    printf("Digite o segundo número: ");
+    scanf("%d", &num2);
 
-    cout << "\n\nA soma dos números entre " << num1 << " e " << num2 <<
-    " vale: " << soma_intervalo(num1, num2);
+    // Verificando se o primeiro número é maior que o segundo
+    if (num1 > num2) {
+        // O primeiro é maior. Invertendo os valores...
+        int aux = num1;
+        num1 = num2;
+        num2 = aux;
+    }
+
+    printf("\n\nA soma dos números entre %d e %d vale: %d", num1, num2,
+        soma_intervalo(num1, num2));
 
     return 0;
 }

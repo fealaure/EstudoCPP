@@ -1,4 +1,4 @@
-//      lista1_5.cpp
+//      lista1_8.cpp
 //
 //      Copyright 2010 Evaldo Junior (InFog) <junior@casoft.info>
 //
@@ -18,28 +18,39 @@
 //      MA 02110-1301, USA.
 
 /**
- * Fazer um programa que pede que o usuário digite um número entre 2 e 9 e
- * depois mostra na tela a tabuada no número digitado.
+ * Fazer um programa que pede que o usuário digite 20 números reais. A lista
+ * deve ser armazenada em um array. O programa deverá mostrar na tela a média
+ * dos números digitados e quantos dos números estão acima da média.
  */
 
 #include <iostream>
-
-using namespace std;
+#include <stdio.h>
 
 int main()
 {
-    int num, i;
+    int num[20], i, acima_media;
+    float media;
 
-    num = 0;
+    media = 0;
 
-    do {
-        cout << "Digite um número entre 2 e 9: ";
-        cin >> num;
-    } while (! (num >= 2 && num <= 9));
-
-    for (i = 1; i <= 10; i++) {
-        cout << num << " x " << i << " = " << num * i << "\n";
+    for (i = 0; i < 20; i++) {
+        printf("Digite o %dº número: ", i + 1);
+        scanf("%d", &num[i]);
+        media += num[i];
     }
+
+    media /= 20;
+
+    acima_media = 0;
+
+    for (i = 0; i < 20; i++) {
+        if (num[i] > media) {
+            acima_media++;
+        }
+    }
+
+    printf("\n\nA média dos números digitados foi %.2f", media);
+    printf("\nHá %d número(s) acima da média", acima_media);
 
     return 0;
 }

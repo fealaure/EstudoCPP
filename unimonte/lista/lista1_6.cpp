@@ -1,4 +1,4 @@
-//      lista1_3.cpp
+//      lista1_6.cpp
 //
 //      Copyright 2010 Evaldo Junior (InFog) <junior@casoft.info>
 //
@@ -18,38 +18,34 @@
 //      MA 02110-1301, USA.
 
 /**
- * Fazer um programa que pede que o usuário digite dois números inteiros.
- * O programa deverá mostrar na tela a soma de todos os números pares
- * existentes no intervalo.
- *
- * Exemplo: Se o usuário digitar 6 e 10 mostrar na tela a soma: 6+8+10 que
- * dá: 24
+ * Transformar o programa da quinta questão em uma função que recebe como
+ * argumento um número e mostra na tela a tabuada deste número.
  */
 
 #include <iostream>
+#include <stdio.h>
 
 using namespace std;
 
+void tabuada(int num) {
+    int i;
+    for (i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", num, i, num * i);
+    }
+}
+
 int main()
 {
-    int num1, num2, soma, i;
+    int num;
 
-    soma = 0;
+    num = 0;
 
-    cout << "Digite o primeiro número: ";
-    cin >> num1;
+    do {
+        printf("Digite um número entre 2 e 9: ");
+        scanf("%d", &num);
+    } while (! (num >= 2 && num <= 9));
 
-    cout << "Digite o segundo número: ";
-    cin >> num2;
-
-    for (i = num1; i <= num2; i++) {
-        if (i % 2 == 0) {
-            soma += i;
-        }
-    }
-
-    cout << "\n\nA soma dos números entre " << num1 << " e " << num2 <<
-    " vale: " << soma;
+    tabuada(num);
 
     return 0;
 }

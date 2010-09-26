@@ -23,6 +23,7 @@
  */
 
 #include <iostream>
+#include <stdio.h>
 
 using namespace std;
 
@@ -33,12 +34,12 @@ int main()
     num = 0;
 
     do {
-        cout << "Digite um número entre 2 e 9: ";
-        cin >> num;
+        printf("Digite um número entre 2 e 9: ");
+        scanf("%d", &num);
     } while (! (num >= 2 && num <= 9));
 
     for (i = 1; i <= 10; i++) {
-        cout << num << " x " << i << " = " << num * i << "\n";
+        printf("%d x %d = %d\n", num, i, num * i);
     }
 
     return 0;

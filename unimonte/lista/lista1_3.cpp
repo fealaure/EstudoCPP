@@ -27,6 +27,7 @@
  */
 
 #include <iostream>
+#include <stdio.h>
 
 using namespace std;
 
@@ -36,11 +37,19 @@ int main()
 
     soma = 0;
 
-    cout << "Digite o primeiro número: ";
-    cin >> num1;
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
 
-    cout << "Digite o segundo número: ";
-    cin >> num2;
+    printf("Digite o segundo número: ");
+    scanf("%d", &num2);
+
+    // Verificando se o primeiro número é maior que o segundo
+    if (num1 > num2) {
+        // O primeiro é maior. Invertendo os valores...
+        int aux = num1;
+        num1 = num2;
+        num2 = aux;
+    }
 
     for (i = num1; i <= num2; i++) {
         if (i % 2 == 0) {
@@ -48,8 +57,7 @@ int main()
         }
     }
 
-    cout << "\n\nA soma dos números entre " << num1 << " e " << num2 <<
-    " vale: " << soma;
+    printf("\n\nA soma dos números entre %d e %d vale: %d", num1, num2, soma);
 
     return 0;
 }
