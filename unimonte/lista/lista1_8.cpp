@@ -28,14 +28,14 @@
 
 int main()
 {
-    int num[20], i, acima_media;
-    float media;
+    int i, acima_media;
+    float num[20], media;
 
     media = 0;
 
     for (i = 0; i < 20; i++) {
         printf("Digite o %dº número: ", i + 1);
-        scanf("%d", &num[i]);
+        scanf("%f", &num[i]);
         media += num[i];
     }
 
