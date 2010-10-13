@@ -26,6 +26,8 @@ int main(int argc, char** argv)
 {
     int secreto, tentativa, tentativas;
 
+    srand( time(NULL) );
+
     secreto = rand() % 30 + 1;
     tentativas = 0;
 
