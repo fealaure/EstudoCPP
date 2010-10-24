@@ -22,7 +22,7 @@
 #include <stdio.h>
 #include <cstdlib>
 
-int main(int argc, char** argv)
+int main()
 {
     int secreto, tentativa, tentativas;
 
@@ -38,16 +38,16 @@ int main(int argc, char** argv)
         scanf("%d", &tentativa);
 
         if (tentativa > secreto) {
-            printf("\nSeu número é maior que o meu.");
+            printf("\nChutou alto.");
         }
         else if (tentativa < secreto) {
-            printf("\nSeu número é menor que o meu.");
+            printf("\nChutou baixo.");
         }
 
         tentativas++;
     } while (tentativa != secreto);
 
-    printf("\n\nParabéns! Você acertou o número em %d tentativas", tentativas);
+    printf("\n\nParabéns! Você acertou o número em %d tentativas\n\n", tentativas);
 
     return 0;
 }
