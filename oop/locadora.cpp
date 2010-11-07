@@ -29,19 +29,11 @@
  *     - O programa cadastra Dvds
  */
 
-
 #include <iostream>
 #include <stdio.h>
 #include <cstdlib>
 
 using namespace std;
-
-// Função Getch
-void getch() {
-    cout.flush();
-    char s[1];
-    cin.get(s, 1);
-}
 
 // Início da Classe Dvd
 
@@ -52,7 +44,7 @@ class Dvd {
         char* titulo;
         char* diretor;
     public:
-        void cadastrar(int p_ano, char p_titulo[30], char p_diretor[20], int p_quantidade);
+        void cadastrar(int p_ano, char p_titulo[30], char p_diretor[20], int p_qtd);
         bool locacao();
         void devolucao();
         void mostra_titulo();
@@ -95,7 +87,7 @@ int opcao = 1; // Opção do menu para o usuário escolher
 
 // Função para cadastrar Dvds
 void cadastrar_dvd() {
-    if (cadastrados < 10) {
+    if (cadastrados < 2) {
         char *titulo;
         titulo = new char[30];
         char *diretor;
@@ -126,6 +118,8 @@ void cadastrar_dvd() {
     }
     else {
         printf("\nNão é possível cadastrar mais que 10 dvds!\n\n");
+        getchar();
+        getchar();
     }
 }
 
