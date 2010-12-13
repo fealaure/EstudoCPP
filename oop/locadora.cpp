@@ -48,6 +48,8 @@ class Dvd {
         bool locacao();
         void devolucao();
         void mostra_titulo();
+        void mostra_quantidade();
+        int retorna_quantidade();
         ~Dvd();
 };
 
@@ -73,6 +75,14 @@ void Dvd::mostra_titulo() {
     printf("%s", titulo);
 }
 
+void Dvd::mostra_quantidade() {
+    printf("%d", quantidade);
+}
+
+int Dvd::retorna_quantidade() {
+    return quantidade;
+}
+
 Dvd::~Dvd() {
     // Método destrutor
     quantidade = 0;
@@ -87,7 +97,7 @@ int opcao = 1; // Opção do menu para o usuário escolher
 
 // Função para cadastrar Dvds
 void cadastrar_dvd() {
-    if (cadastrados < 2) {
+    if (cadastrados < 10) {
         char *titulo;
         titulo = new char[30];
         char *diretor;
@@ -136,6 +146,37 @@ void listar_dvds() {
     getchar();
 }
 
+void locacao() {
+    int i;
+    getchar();
+    system("clear");
+    printf("=== DVDs para Locação===\n\n");
+    for (i = 0; i < cadastrados; i++) {
+        printf("%d - Título: ", i + 1);
+        dvds[i].mostra_titulo();
+        printf("\n");
+        printf("Quantidade: ");
+        dvds[i].mostra_quantidade();
+        printf("\n\n");
+    }
+    printf("\nLocar DVD: ");
+    scanf("%d", &opcao);
+    getchar();
+
+    if (opcao >= 1 && opcao <= cadastrados) {
+        opcao--;
+        if (dvds[opcao].retorna_quantidade() > 0) {
+            dvds[opcao].locacao();
+            printf("A locação foi realizada!\n\n");
+        }
+        else {
+            printf("A locação NÃO foi realizada!\n\n");
+        }
+    }
+    opcao = 100;
+    getchar();
+}
+
 // Função para exibir o menu
 void menu() {
     system("clear");
@@ -145,6 +186,7 @@ void menu() {
 
     printf("1 - Cadastrar Dvd\n");
     printf("2 - Listar Dvds cadastrados\n");
+    printf("3 - Locação\n");
     printf("0 - SAIR\n");
 
     printf("\nOpção: ");
@@ -156,6 +198,9 @@ void menu() {
             break;
         case 2:
             listar_dvds();
+            break;
+        case 3:
+            locacao();
             break;
         case 0:
             break;
